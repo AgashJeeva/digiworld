@@ -9,7 +9,7 @@ const AdminDashboard = () => {
   useEffect(() => {
     API.get("/products")
       .then((res) => setProducts(res.data))
-      .catch((err) => message.error("Failed to load products"));
+      .catch(() => message.error("Failed to load products"));
   }, []);
 
   const columns = [
@@ -23,6 +23,9 @@ const AdminDashboard = () => {
         return <Tag color={color}>{stock}</Tag>;
       },
     },
+    { title: "Colors", dataIndex: "colorOptions", key: "colors", render: colors => colors.join(", ") },
+    { title: "RAM", dataIndex: "ramOptions", key: "ram", render: ram => ram.join(", ") },
+    { title: "Storage", dataIndex: "storageOptions", key: "storage", render: storage => storage.join(", ") },
   ];
 
   return (

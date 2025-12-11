@@ -1,10 +1,9 @@
 import React from "react";
-import { Card, Tag } from "antd";
+import { Card, Tag, Button } from "antd";
 
-const ProductCard = ({ product }) => {
+const ProductCard = ({ product, onInquiry }) => {
   const { name, category, price, stock, colorOptions, ramOptions, storageOptions } = product;
 
-  // Stock color
   const stockColor = stock === 0 ? "red" : stock <= 5 ? "orange" : "green";
 
   return (
@@ -13,6 +12,11 @@ const ProductCard = ({ product }) => {
       style={{ width: 300, margin: 16 }}
       bordered
       hoverable
+      actions={[
+        <Button type="primary" onClick={() => onInquiry(product)}>
+          Submit Inquiry
+        </Button>,
+      ]}
     >
       <p>Category: {category}</p>
       <p>Price: Rs. {price}</p>

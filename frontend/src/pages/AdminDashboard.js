@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { Table, Tag, message } from "antd";
+import { Table, Tag, message, Typography } from "antd";
 import Navbar from "../components/Navbar";
 import API from "../api/api";
+
+const { Title } = Typography;
 
 const AdminDashboard = () => {
   const [products, setProducts] = useState([]);
@@ -31,8 +33,8 @@ const AdminDashboard = () => {
   return (
     <>
       <Navbar />
-      <div style={{ padding: 24 }}>
-        <h2>Admin Dashboard</h2>
+      <div style={{ padding: 24, backgroundColor: "#f0f5ff", minHeight: "100vh" }}>
+        <Title level={2} style={{ marginBottom: 24 }}>Admin Dashboard</Title>
         <Table dataSource={products} columns={columns} rowKey="_id" />
       </div>
     </>

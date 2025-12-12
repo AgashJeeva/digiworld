@@ -6,11 +6,11 @@ const { Header } = Layout;
 
 const Navbar = () => {
   return (
-    <Header style={{ backgroundColor: "#1890ff" }}>
-      <div className="logo" style={{ float: "left", color: "#fff", fontSize: 24, fontWeight: "bold" }}>
+    <Header style={{ backgroundColor: "#1890ff", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+      <div style={{ color: "#fff", fontSize: 28, fontWeight: "bold" }}>
         DIGI WORLD
       </div>
-      <Menu theme="dark" mode="horizontal" defaultSelectedKeys={["1"]} style={{ lineHeight: "64px", float: "right" }}>
+      <Menu theme="dark" mode="horizontal" defaultSelectedKeys={["1"]}>
         <Menu.Item key="1">
           <Link to="/">Home</Link>
         </Menu.Item>

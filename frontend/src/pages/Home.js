@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { Row, Col, Spin, Select } from "antd";
+import { Row, Col, Spin, Select, Typography } from "antd";
 import Navbar from "../components/Navbar";
 import ProductCard from "../components/ProductCard";
 import InquiryModal from "../components/InquiryModal";
 import API from "../api/api";
 
 const { Option } = Select;
+const { Title } = Typography;
 
 const Home = () => {
   const [products, setProducts] = useState([]);
@@ -29,12 +30,10 @@ const Home = () => {
   const handleInquiry = (product) => setSelectedProduct(product);
   const handleCloseModal = () => setSelectedProduct(null);
 
-  // Get unique options for filters
   const allColors = [...new Set(products.flatMap((p) => p.colorOptions))];
   const allRAM = [...new Set(products.flatMap((p) => p.ramOptions))];
   const allStorage = [...new Set(products.flatMap((p) => p.storageOptions))];
 
-  // Filter products
   const filteredProducts = products.filter((p) => {
     return (
       (filterCategory === "all" || p.category === filterCategory) &&
@@ -47,8 +46,10 @@ const Home = () => {
   return (
     <>
       <Navbar />
-      <div style={{ padding: 24 }}>
-        <Row gutter={[16, 16]}>
+      <div style={{ padding: 24, backgroundColor: "#f0f5ff", minHeight: "100vh" }}>
+        <Title level={2} style={{ textAlign: "center", marginBottom: 24 }}>All Products</Title>
+
+        <Row gutter={[16, 16]} justify="center" style={{ marginBottom: 24 }}>
           <Col>
             <Select defaultValue="all" style={{ width: 150 }} onChange={(v) => setFilterCategory(v)}>
               <Option value="all">All Categories</Option>
@@ -61,25 +62,19 @@ const Home = () => {
           <Col>
             <Select defaultValue="all" style={{ width: 120 }} onChange={(v) => setFilterColor(v)}>
               <Option value="all">All Colors</Option>
-              {allColors.map((c) => (
-                <Option key={c} value={c}>{c}</Option>
-              ))}
+              {allColors.map((c) => <Option key={c} value={c}>{c}</Option>)}
             </Select>
           </Col>
           <Col>
             <Select defaultValue="all" style={{ width: 120 }} onChange={(v) => setFilterRAM(v)}>
               <Option value="all">All RAM</Option>
-              {allRAM.map((r) => (
-                <Option key={r} value={r}>{r}</Option>
-              ))}
+              {allRAM.map((r) => <Option key={r} value={r}>{r}</Option>)}
             </Select>
           </Col>
           <Col>
             <Select defaultValue="all" style={{ width: 140 }} onChange={(v) => setFilterStorage(v)}>
               <Option value="all">All Storage</Option>
-              {allStorage.map((s) => (
-                <Option key={s} value={s}>{s}</Option>
-              ))}
+              {allStorage.map((s) => <Option key={s} value={s}>{s}</Option>)}
             </Select>
           </Col>
         </Row>
@@ -87,7 +82,7 @@ const Home = () => {
         {loading ? (
           <Spin size="large" style={{ display: "block", margin: "50px auto" }} />
         ) : (
-          <Row gutter={[16, 16]} style={{ marginTop: 16 }}>
+          <Row gutter={[16, 16]} justify="center">
             {filteredProducts.map((product) => (
               <Col key={product._id}>
                 <ProductCard product={product} onInquiry={handleInquiry} />

@@ -22,6 +22,7 @@ const accessorySchema = new mongoose.Schema({
 
 const productSchema = new mongoose.Schema({
   name: { type: String, required: true },
+  image: String,
   brand: String,
   category: { type: String, required: true }, // phone/laptop/tablet/accessory/macbook/ipad...
   description: String,

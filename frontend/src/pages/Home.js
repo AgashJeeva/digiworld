@@ -298,7 +298,7 @@ const Home = () => {
           </div>
         </div>
         <div className="max-w-[1200px] mx-auto px-4 lg:px-8 mt-12 pt-8 border-t border-[#f0f3f4] dark:border-[#222] flex flex-col md:flex-row justify-between items-center text-sm text-[#617989] dark:text-gray-500">
-          <p>© 2024 Digi World. All rights reserved.</p>
+          <p>© 2023 Digi World. All rights reserved.</p>
           <div className="flex gap-6 mt-4 md:mt-0">
               <Link className="hover:text-primary" to="/privacy">Privacy Policy</Link>
               <Link className="hover:text-primary" to="/terms">Terms of Service</Link>

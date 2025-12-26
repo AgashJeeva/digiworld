@@ -279,7 +279,8 @@ const Home = () => {
               <Link className="hover:text-primary" to="/faq">FAQs</Link>
             </div>
           </div>
-          <div className="flex flex-col gap-4">
+          // "flex flex-col gap-4"
+          <div className="flex flex-col gap-5">
             <h4 className="font-bold text-[#111518] dark:text-white">Contact</h4>
             <div className="flex flex-col gap-2 text-sm text-[#617989] dark:text-gray-400">
               <div className="flex gap-2 items-center">
